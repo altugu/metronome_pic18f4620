@@ -1,0 +1,74 @@
+__S0 10000 0 ABS 0
+__S1 1 0 ABS 0
+__S3 0 0 ABS 0
+var1 0 0 COMRAM 1
+__Hudata_bank10 6 0 ABS 0
+__Ludata_bank10 6 0 ABS 0
+__Hudata_bank4 6 0 ABS 0
+__Ludata_bank4 6 0 ABS 0
+__Hudata_bank13 6 0 ABS 0
+__Ludata_bank13 6 0 ABS 0
+__Hconfig 30000E 0 CONFIG 4
+__Lconfig 0 0 CONFIG 4
+__Hudata_acs 6 0 ABS 0
+__Ludata_acs 6 0 ABS 0
+__HCODE 6 0 ABS 0
+__LCODE 0 0 ABS 0
+__Hudata_bank5 6 0 ABS 0
+__Ludata_bank5 6 0 ABS 0
+__HresetVec 6 0 ABS 0
+__LresetVec 6 0 ABS 0
+__Hcode 6 0 ABS 0
+__Lcode 6 0 ABS 0
+__Hdata 6 0 ABS 0
+__Ldata 6 0 ABS 0
+__Hudata_bank0 6 0 ABS 0
+__Ludata_bank0 6 0 ABS 0
+__Hudata_bank11 6 0 ABS 0
+__Ludata_bank11 6 0 ABS 0
+__Hudata_bank6 6 0 ABS 0
+__Ludata_bank6 6 0 ABS 0
+__Hudata_bank14 6 0 ABS 0
+__Ludata_bank14 6 0 ABS 0
+__Hedata 6 0 ABS 0
+__Ledata 6 0 ABS 0
+__Hudata 6 0 ABS 0
+__Ludata 6 0 ABS 0
+__Hudata_bank1 6 0 ABS 0
+__Ludata_bank1 6 0 ABS 0
+__Hspace_0 10000 0 ABS 0
+__Lspace_0 0 0 ABS 0
+__Hspace_1 1 0 ABS 0
+__Lspace_1 0 0 ABS 0
+__Hudata_bank7 6 0 ABS 0
+__Ludata_bank7 6 0 ABS 0
+__Hspace_3 0 0 ABS 0
+__Lspace_3 0 0 ABS 0
+__Hspace_4 60000F 0 ABS 0
+__Lspace_4 0 0 ABS 0
+__Hudata_bank2 6 0 ABS 0
+__Ludata_bank2 6 0 ABS 0
+__Hudata_bank12 6 0 ABS 0
+__Ludata_bank12 6 0 ABS 0
+__Hudata_bank8 6 0 ABS 0
+__Ludata_bank8 6 0 ABS 0
+__Hudata_bank15 6 0 ABS 0
+__Ludata_bank15 6 0 ABS 0
+__Hudata_bank3 6 0 ABS 0
+__Ludata_bank3 6 0 ABS 0
+__Hudata_bank9 6 0 ABS 0
+__Ludata_bank9 6 0 ABS 0
+%segments
+udata_acs 0 0 COMRAM 0 1
+resetVec FFFC FFFF CODE FFFC 0
+%locals
+build/default/production/main.o
+/opt/microchip/xc8/v2.30/pic/include/proc/pic18f4620.inc
+main.s
+33 FFFC 0 CODE 0
+34 FFFC 0 CODE 0
+main.s
+37 0 0 ABS 0
+38 0 0 ABS 0
+39 2 0 ABS 0
+40 2 0 ABS 0
