@@ -24,13 +24,15 @@ CONFIG XINST = OFF      ; Extended Instruction Set Enable bit (Instruction set e
 ; You need to add your variables here if you want to debug them.
 GLOBAL var1
 GLOBAL var2
-GLOBAL is_paused
+GLOBAL pause
+GLOBAL speed ; clr:1x, set:2x 
 GLOBAL reset_bl
 GLOBAL decrease_bl
 GLOBAL increase_bl
 GLOBAL prev_inputs
 GLOBAL curr_inputs
 GLOBAL changes
+
 ; Define space for the variables in RAM
 PSECT udata_acs
 var1:
@@ -39,7 +41,7 @@ var2:
     DS 1   
 var3:
     DS 1
-is_paused:
+pause:
     DS 1
 reset_bl:
     DS 1
@@ -53,7 +55,8 @@ curr_inputs:
     DS 1
 changes:
     DS 1
-    
+speed:
+    DS 1
     
 PSECT resetVec,class=CODE,reloc=2
 resetVec:
@@ -63,33 +66,59 @@ PSECT CODE
 main:
   clrf TRISA ; make PORTA an output
   setf TRISB ; make PORTB an input
-  movlw 0x7
-  movwf PORTA
-  movlw 0x00
-  movwf prev_inputs
-  movlw 0xff
-  movwf LATB
-  call input_check
-  nop
-  
+  call initialization
+  call event_loop
   return
-  
-metronome_check:
-    return
-  
-ms_wait: ;takes halfbar_duration as parameter 
-    ; check halfbar_duration
-    ;
+
+
+initialization:
+    clrf LATA
+    clrf LATB
+    call one_second_busy_wait
+    movlw 0x04
+    subwf LATA, 1
     return
     
-one_second_busy_wait:
-
   
+event_loop: ; while(true) { read inputs, function the metronome }
+    call input_check
+    call metronome_routine
+    goto event_loop
+
+metronome_routine:
+    return
+input_check: ; checks PORTB detect the changes     
+    movff LATB, curr_inputs ; save current inputs
+    comf curr_inputs,0 ; complement current inputs
+    andwf prev_inputs, 0 ; wreg <- prev & curr^
+    movwf changes
+    movff curr_inputs, prev_inputs
+    tstfsz changes
+    call record_changes
+    return
+
+    
+record_changes:  ; checks RB<#>
+    btfsc changes,0 
+    comf pause
+    btfsc changes,1
+    comf speed
+    btfsc changes,2
+    nop
+    btfsc changes,3
+    nop
+    btfsc changes,4
+    nop
+    return
+
+one_second_busy_wait:
   movlw 17
   movwf var2
   clrf var1 ; var1 = 0
   movlw 250
   movwf var3 
+  movlw 0x07
+  movwf LATA
   outer_loop_start:
     mid_loop_start:
 	loop_start:
@@ -99,35 +128,6 @@ one_second_busy_wait:
       bnz mid_loop_start
     incfsz var3 ; var1 += 1; if (var1 == 0) skip next
     goto outer_loop_start
-  ; 8 bit
-  ; var1 = 255
-  ; var1 = 0
-  decf LATA
   return
-    
-input_check: ; checks the changes
-    movff LATB, curr_inputs ; save current inputs
-    comf curr_inputs ; complement current inputs 
-    setf WREG 
-    andwf prev_inputs,0  ; load prev inputs to wreg
-    andwf curr_inputs, 0 ; prev_inputs & curr_inputs^  -> wreg holds 1 to 0 changes
-    movwf changes ;
-    tstfsz changes
-    call record_changes
-    return
-    
-record_changes:  ; checks RB<#>
-    btfsc changes,0 
-    nop
-    btfsc changes,1
-    nop
-    btfsc changes,2
-    nop
-    btfsc changes,3
-    nop
-    btfsc changes,4
-    nop
-    
-    return
- 
+
 end resetVec

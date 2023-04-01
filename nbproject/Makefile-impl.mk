@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=the1.X
+PROJECTNAME=metronome_pic18f4620
 
 # Active Configuration
 DEFAULTCONF=default

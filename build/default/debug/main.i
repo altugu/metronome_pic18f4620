@@ -4082,49 +4082,26 @@ PSECT CODE
 main:
   clrf TRISA ; make PORTA an output
   setf TRISB ; make PORTB an input
-  movlw 0x7
-  movwf PORTA
-  movlw 0x00
-  movwf prev_inputs
-  movlw 0xff
-  movwf LATB
-  call input_check
-  nop
-
+  call initialization
+  call event_loop
   return
 
-metronome_check:
+
+initialization:
+    clrf LATA
+    clrf LATB
+    call one_second_busy_wait
+    movlw 0x04
+    subwf LATA, 1
     return
 
-ms_wait: ;takes halfbar_duration as parameter
-    ; check halfbar_duration
-    ;
-    return
 
-one_second_busy_wait:
+event_loop: ; while(true) { read inputs, function the metronome }
+    call input_check
+    ;call metronome_routine
+    goto event_loop
 
-
-  movlw 17
-  movwf var2
-  clrf var1 ; var1 = 0
-  movlw 250
-  movwf var3
-  outer_loop_start:
-    mid_loop_start:
- loop_start:
-   incfsz var1 ; var1 += 1; if (var1 == 0) skip next
-   goto loop_start
-      decf var2
-      bnz mid_loop_start
-    incfsz var3 ; var1 += 1; if (var1 == 0) skip next
-    goto outer_loop_start
-  ; 8 bit
-  ; var1 = 255
-  ; var1 = 0
-  decf LATA
-  return
-
-input_check: ; checks the changes
+input_check: ; checks PORTB detect the changes
     movff LATB, curr_inputs ; save current inputs
     comf curr_inputs ; complement current inputs
     setf WREG
@@ -4134,6 +4111,7 @@ input_check: ; checks the changes
     tstfsz changes
     call record_changes
     return
+
 
 record_changes: ; checks RB<#>
     btfsc changes,0
@@ -4146,7 +4124,25 @@ record_changes: ; checks RB<#>
     nop
     btfsc changes,4
     nop
-
     return
+
+one_second_busy_wait:
+  movlw 17
+  movwf var2
+  clrf var1 ; var1 = 0
+  movlw 250
+  movwf var3
+  movlw 0x07
+  movwf LATA
+  outer_loop_start:
+    mid_loop_start:
+ loop_start:
+   incfsz var1 ; var1 += 1; if (var1 == 0) skip next
+   goto loop_start
+      decf var2
+      bnz mid_loop_start
+    incfsz var3 ; var1 += 1; if (var1 == 0) skip next
+    goto outer_loop_start
+  return
 
 end resetVec
