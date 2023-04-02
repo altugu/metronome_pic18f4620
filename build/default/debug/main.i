@@ -4046,6 +4046,7 @@ GLOBAL var2
 GLOBAL pause
 GLOBAL speed ; clr:1x, set:2x
 GLOBAL bar_length
+GLOBAL bl
 GLOBAL decrease_bl
 GLOBAL increase_bl
 GLOBAL prev_inputs
@@ -4076,6 +4077,8 @@ changes:
     DS 1
 speed:
     DS 1
+bl:
+    DS 1
 
 PSECT resetVec,class=CODE,reloc=2
 resetVec:
@@ -4098,11 +4101,29 @@ initialization:
     movwf bar_length
     subwf LATA, 1
     return
+ test:
+    movlw 0x01
+    decf WREG
+    decf WREG
+    decf WREG
+    return
 
-
-event_loop: ; while(true) { read inputs, function the metronome }
-    call input_check
-    call metronome_routine
+event_loop: ;
+    movff bar_length, bl
+    ;up ((PORTA) and 0FFh), 1, a
+    while_barlength:
+ ; var = 2
+ for_2_times:
+     ; count=20 if speed 1x, =10 if 2x
+     while_count:
+  ;call input_check
+  ;call metronome_routine
+  ;switch ra0
+     ;Down ((PORTA) and 0FFh), 1, a
+     ; if var < 0 skip
+ ;if bl < 0 skip
+ decf bl
+ bz while_barlength
     goto event_loop
 
 metronome_routine:
@@ -4117,18 +4138,38 @@ input_check: ; checks PORTB detect the changes
     call record_changes
     return
 
-
+pause_action:
+    ; while(paused == true)
+    ; input_check;
+    ; busy_wait
+    ; if(paused == false)
+    ; return
+    ;
 record_changes: ; checks RB<#>
     btfsc changes,0
     comf pause
     btfsc changes,1
     comf speed
     btfsc changes,2
-    nop
+    call reset_bar_length
     btfsc changes,3
-    nop
+    call dec_bar_length
     btfsc changes,4
-    nop
+    call inc_bar_length
+    return
+
+reset_bar_length:
+    movlw 0x04
+    movwf bar_length
+    subwf bl
+    return
+dec_bar_length:
+    decf bl
+    decf bar_length
+    return
+inc_bar_length:
+    incf bl
+    incf bar_length
     return
 
 one_second_busy_wait:
