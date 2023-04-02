@@ -13,8 +13,8 @@
 %PSECTS
 $build/default/debug/main.o
 resetVec CODE 0 FFFC FFFC 4 1
-CODE - 0 0 0 70 1
-udata_acs COMRAM 1 0 0 A 1
+CODE - 0 0 0 78 1
+udata_acs COMRAM 1 0 0 B 1
 config CONFIG 4 300001 300001 D 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -34,18 +34,18 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 70-FFFB 1
+CONST 78-FFFB 1
 IDLOC 200000-200007 1
 SMALLCONST 1000-FFFB 1
-CODE 70-FFFB 1
+CODE 78-FFFB 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DFF 1
 BANK14 E00-EFF 1
 BANK15 F00-F7F 1
-BIGRAM 70-F7F 1
-COMRAM A-7F 1
+BIGRAM 78-F7F 1
+COMRAM B-7F 1
 CONFIG 300000-300000 1
 EEDATA F00000-F003FF 1
 MEDIUMCONST 1000-FFFB 1
@@ -63,64 +63,67 @@ MEDIUMCONST 1000-FFFB 1
 # All other numeric values are in decimal.
 %LINETAB
 $build/default/debug/main.o
-0 CODE ABS >63:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-0 CODE ABS >64:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-2 CODE ABS >65:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-4 CODE ABS >66:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-8 CODE ABS >67:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-C CODE ABS >68:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-E CODE ABS >71:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-E CODE ABS >72:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-10 CODE ABS >73:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-12 CODE ABS >74:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-16 CODE ABS >75:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-18 CODE ABS >76:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-1A CODE ABS >77:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-1C CODE ABS >80:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+0 CODE ABS >66:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+0 CODE ABS >67:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+2 CODE ABS >68:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+4 CODE ABS >69:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+8 CODE ABS >70:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+C CODE ABS >71:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+E CODE ABS >74:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+E CODE ABS >75:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+10 CODE ABS >76:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+12 CODE ABS >77:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+16 CODE ABS >78:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+18 CODE ABS >79:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+1A CODE ABS >80:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
 1C CODE ABS >81:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-20 CODE ABS >83:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-24 CODE ABS >85:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-24 CODE ABS >86:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-28 CODE ABS >87:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-2A CODE ABS >88:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-2C CODE ABS >89:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-2E CODE ABS >90:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-30 CODE ABS >91:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-32 CODE ABS >92:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-34 CODE ABS >93:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-38 CODE ABS >94:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+1E CODE ABS >84:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+1E CODE ABS >85:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+22 CODE ABS >86:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+26 CODE ABS >87:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+2A CODE ABS >89:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+2A CODE ABS >90:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+2C CODE ABS >91:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+2C CODE ABS >92:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+30 CODE ABS >93:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+32 CODE ABS >94:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+34 CODE ABS >95:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+36 CODE ABS >96:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
 3A CODE ABS >97:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-3A CODE ABS >98:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-3C CODE ABS >99:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-3E CODE ABS >100:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-40 CODE ABS >101:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+3C CODE ABS >98:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+40 CODE ABS >99:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
 42 CODE ABS >102:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-44 CODE ABS >103:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-46 CODE ABS >104:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-48 CODE ABS >105:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-4A CODE ABS >106:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-4C CODE ABS >107:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-4E CODE ABS >108:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+42 CODE ABS >103:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+44 CODE ABS >104:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+46 CODE ABS >105:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+48 CODE ABS >106:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+4A CODE ABS >107:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+4C CODE ABS >108:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+4E CODE ABS >109:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
 50 CODE ABS >110:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-50 CODE ABS >111:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-52 CODE ABS >112:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-54 CODE ABS >113:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-56 CODE ABS >114:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+52 CODE ABS >111:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+54 CODE ABS >112:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+56 CODE ABS >113:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
 58 CODE ABS >115:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-5A CODE ABS >116:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-5C CODE ABS >117:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-5E CODE ABS >118:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+58 CODE ABS >116:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+5A CODE ABS >117:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+5C CODE ABS >118:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
 5E CODE ABS >119:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-5E CODE ABS >120:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-5E CODE ABS >121:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-60 CODE ABS >122:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-64 CODE ABS >123:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+60 CODE ABS >120:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+62 CODE ABS >121:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+64 CODE ABS >122:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+66 CODE ABS >123:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
 66 CODE ABS >124:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-68 CODE ABS >125:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-6A CODE ABS >126:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-6E CODE ABS >127:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-FFFC resetVec CODE >59:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
-FFFC resetVec CODE >60:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+66 CODE ABS >125:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+66 CODE ABS >126:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+68 CODE ABS >127:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+6C CODE ABS >128:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+6E CODE ABS >129:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+70 CODE ABS >130:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+72 CODE ABS >131:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+76 CODE ABS >132:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+FFFC resetVec CODE >62:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
+FFFC resetVec CODE >63:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/main.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -134,73 +137,74 @@ FFFC resetVec CODE >60:/home/altug/MPLABXProjects/the1.X/metronome_pic18f4620/ma
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 __Hspace_0 10000 0 ABS 0 - -
-__Hspace_1 A 0 ABS 0 - -
+__Hspace_1 B 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 60000F 0 ABS 0 - -
-__Hudata_bank0 70 0 ABS 0 udata_bank0 -
-__Hudata_bank1 70 0 ABS 0 udata_bank1 -
-__Hudata_bank2 70 0 ABS 0 udata_bank2 -
-__Hudata_bank3 70 0 ABS 0 udata_bank3 -
-__Hudata_bank4 70 0 ABS 0 udata_bank4 -
-__Hudata_bank5 70 0 ABS 0 udata_bank5 -
-__Hudata_bank6 70 0 ABS 0 udata_bank6 -
-__Hudata_bank7 70 0 ABS 0 udata_bank7 -
-__Hudata_bank8 70 0 ABS 0 udata_bank8 -
-__Hudata_bank9 70 0 ABS 0 udata_bank9 -
-reset_bl 4 0 COMRAM 1 udata_acs build/default/debug/main.o
-__LresetVec 70 0 ABS 0 resetVec -
+__Hudata_bank0 78 0 ABS 0 udata_bank0 -
+__Hudata_bank1 78 0 ABS 0 udata_bank1 -
+__Hudata_bank2 78 0 ABS 0 udata_bank2 -
+__Hudata_bank3 78 0 ABS 0 udata_bank3 -
+__Hudata_bank4 78 0 ABS 0 udata_bank4 -
+__Hudata_bank5 78 0 ABS 0 udata_bank5 -
+__Hudata_bank6 78 0 ABS 0 udata_bank6 -
+__Hudata_bank7 78 0 ABS 0 udata_bank7 -
+__Hudata_bank8 78 0 ABS 0 udata_bank8 -
+__Hudata_bank9 78 0 ABS 0 udata_bank9 -
+pause 3 0 COMRAM 1 udata_acs build/default/debug/main.o
+speed A 0 COMRAM 1 udata_acs build/default/debug/main.o
+__LresetVec 78 0 ABS 0 resetVec -
 decrease_bl 5 0 COMRAM 1 udata_acs build/default/debug/main.o
-__Hudata_bank10 70 0 ABS 0 udata_bank10 -
-__Hudata_bank11 70 0 ABS 0 udata_bank11 -
-__Hudata_bank12 70 0 ABS 0 udata_bank12 -
-__Hudata_bank13 70 0 ABS 0 udata_bank13 -
-__Hudata_bank14 70 0 ABS 0 udata_bank14 -
-__Hudata_bank15 70 0 ABS 0 udata_bank15 -
-__HresetVec 70 0 ABS 0 resetVec -
-__Hedata 70 0 ABS 0 edata -
-__Hudata 70 0 ABS 0 udata -
+__Hudata_bank10 78 0 ABS 0 udata_bank10 -
+__Hudata_bank11 78 0 ABS 0 udata_bank11 -
+__Hudata_bank12 78 0 ABS 0 udata_bank12 -
+__Hudata_bank13 78 0 ABS 0 udata_bank13 -
+__Hudata_bank14 78 0 ABS 0 udata_bank14 -
+__Hudata_bank15 78 0 ABS 0 udata_bank15 -
+__HresetVec 78 0 ABS 0 resetVec -
+__Hedata 78 0 ABS 0 edata -
+__Hudata 78 0 ABS 0 udata -
 __Hconfig 30000E 0 CONFIG 4 config -
-__Ledata 70 0 ABS 0 edata -
-__Ludata 70 0 ABS 0 udata -
-__HCODE 70 0 ABS 0 CODE -
-__Hcode 70 0 ABS 0 code -
-__Hdata 70 0 ABS 0 data -
+__Ledata 78 0 ABS 0 edata -
+__Ludata 78 0 ABS 0 udata -
+__HCODE 78 0 ABS 0 CODE -
+__Hcode 78 0 ABS 0 code -
+__Hdata 78 0 ABS 0 data -
 __LCODE 0 0 ABS 0 CODE -
-__Lcode 70 0 ABS 0 code -
-__Ldata 70 0 ABS 0 data -
-is_paused 3 0 COMRAM 1 udata_acs build/default/debug/main.o
+__Lcode 78 0 ABS 0 code -
+__Ldata 78 0 ABS 0 data -
 prev_inputs 7 0 COMRAM 1 udata_acs build/default/debug/main.o
 __S0 10000 0 ABS 0 - -
-__S1 A 0 ABS 0 - -
+__S1 B 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 var1 0 0 COMRAM 1 udata_acs build/default/debug/main.o
 var2 1 0 COMRAM 1 udata_acs build/default/debug/main.o
-__Ludata_bank10 70 0 ABS 0 udata_bank10 -
-__Ludata_bank11 70 0 ABS 0 udata_bank11 -
-__Ludata_bank12 70 0 ABS 0 udata_bank12 -
-__Ludata_bank13 70 0 ABS 0 udata_bank13 -
-__Ludata_bank14 70 0 ABS 0 udata_bank14 -
-__Ludata_bank15 70 0 ABS 0 udata_bank15 -
+__Ludata_bank10 78 0 ABS 0 udata_bank10 -
+__Ludata_bank11 78 0 ABS 0 udata_bank11 -
+__Ludata_bank12 78 0 ABS 0 udata_bank12 -
+__Ludata_bank13 78 0 ABS 0 udata_bank13 -
+__Ludata_bank14 78 0 ABS 0 udata_bank14 -
+__Ludata_bank15 78 0 ABS 0 udata_bank15 -
 __Lconfig 0 0 CONFIG 4 config -
+bar_length 4 0 COMRAM 1 udata_acs build/default/debug/main.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 changes 9 0 COMRAM 1 udata_acs build/default/debug/main.o
-__Ludata_bank0 70 0 ABS 0 udata_bank0 -
-__Ludata_bank1 70 0 ABS 0 udata_bank1 -
-__Ludata_bank2 70 0 ABS 0 udata_bank2 -
-__Ludata_bank3 70 0 ABS 0 udata_bank3 -
-__Ludata_bank4 70 0 ABS 0 udata_bank4 -
-__Ludata_bank5 70 0 ABS 0 udata_bank5 -
-__Ludata_bank6 70 0 ABS 0 udata_bank6 -
-__Ludata_bank7 70 0 ABS 0 udata_bank7 -
-__Ludata_bank8 70 0 ABS 0 udata_bank8 -
-__Ludata_bank9 70 0 ABS 0 udata_bank9 -
+__Ludata_bank0 78 0 ABS 0 udata_bank0 -
+__Ludata_bank1 78 0 ABS 0 udata_bank1 -
+__Ludata_bank2 78 0 ABS 0 udata_bank2 -
+__Ludata_bank3 78 0 ABS 0 udata_bank3 -
+__Ludata_bank4 78 0 ABS 0 udata_bank4 -
+__Ludata_bank5 78 0 ABS 0 udata_bank5 -
+__Ludata_bank6 78 0 ABS 0 udata_bank6 -
+__Ludata_bank7 78 0 ABS 0 udata_bank7 -
+__Ludata_bank8 78 0 ABS 0 udata_bank8 -
+__Ludata_bank9 78 0 ABS 0 udata_bank9 -
 increase_bl 6 0 COMRAM 1 udata_acs build/default/debug/main.o
-__Hudata_acs 70 0 ABS 0 udata_acs -
+__Hudata_acs 78 0 ABS 0 udata_acs -
 curr_inputs 8 0 COMRAM 1 udata_acs build/default/debug/main.o
-__Ludata_acs 70 0 ABS 0 udata_acs -
+__Ludata_acs 78 0 ABS 0 udata_acs -
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -226,7 +230,7 @@ __Ludata_acs 70 0 ABS 0 udata_acs -
 # All other numeric quantities are in decimal.
 %SEGMENTS
 resetVec 0 FFFC FFFC 4 1
-udata_acs 1 0 0 A 1
+udata_acs 1 0 0 B 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

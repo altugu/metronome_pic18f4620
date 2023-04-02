@@ -26,7 +26,7 @@ GLOBAL var1
 GLOBAL var2
 GLOBAL pause
 GLOBAL speed ; clr:1x, set:2x 
-GLOBAL reset_bl
+GLOBAL bar_length
 GLOBAL decrease_bl
 GLOBAL increase_bl
 GLOBAL prev_inputs
@@ -43,7 +43,7 @@ var3:
     DS 1
 pause:
     DS 1
-reset_bl:
+bar_length:
     DS 1
 decrease_bl:
     DS 1
@@ -76,6 +76,7 @@ initialization:
     clrf LATB
     call one_second_busy_wait
     movlw 0x04
+    movwf bar_length
     subwf LATA, 1
     return
     

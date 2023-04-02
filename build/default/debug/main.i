@@ -4043,13 +4043,15 @@ CONFIG XINST = OFF ; Extended Instruction Set Enable bit (Instruction set extens
 ; You need to add your variables here if you want to debug them.
 GLOBAL var1
 GLOBAL var2
-GLOBAL is_paused
-GLOBAL reset_bl
+GLOBAL pause
+GLOBAL speed ; clr:1x, set:2x
+GLOBAL bar_length
 GLOBAL decrease_bl
 GLOBAL increase_bl
 GLOBAL prev_inputs
 GLOBAL curr_inputs
 GLOBAL changes
+
 ; Define space for the variables in RAM
 PSECT udata_acs
 var1:
@@ -4058,9 +4060,9 @@ var2:
     DS 1
 var3:
     DS 1
-is_paused:
+pause:
     DS 1
-reset_bl:
+bar_length:
     DS 1
 decrease_bl:
     DS 1
@@ -4072,7 +4074,8 @@ curr_inputs:
     DS 1
 changes:
     DS 1
-
+speed:
+    DS 1
 
 PSECT resetVec,class=CODE,reloc=2
 resetVec:
@@ -4092,22 +4095,24 @@ initialization:
     clrf LATB
     call one_second_busy_wait
     movlw 0x04
+    movwf bar_length
     subwf LATA, 1
     return
 
 
 event_loop: ; while(true) { read inputs, function the metronome }
     call input_check
-    ;call metronome_routine
+    call metronome_routine
     goto event_loop
 
+metronome_routine:
+    return
 input_check: ; checks PORTB detect the changes
     movff LATB, curr_inputs ; save current inputs
-    comf curr_inputs ; complement current inputs
-    setf WREG
-    andwf prev_inputs,0 ; load prev inputs to wreg
-    andwf curr_inputs, 0 ; prev_inputs & curr_inputs^ -> wreg holds 1 to 0 changes
-    movwf changes ;
+    comf curr_inputs,0 ; complement current inputs
+    andwf prev_inputs, 0 ; wreg <- prev & curr^
+    movwf changes
+    movff curr_inputs, prev_inputs
     tstfsz changes
     call record_changes
     return
@@ -4115,9 +4120,9 @@ input_check: ; checks PORTB detect the changes
 
 record_changes: ; checks RB<#>
     btfsc changes,0
-    nop
+    comf pause
     btfsc changes,1
-    nop
+    comf speed
     btfsc changes,2
     nop
     btfsc changes,3
