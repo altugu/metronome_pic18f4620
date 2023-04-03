@@ -79,6 +79,7 @@ main:
 initialization:
     clrf LATA
     clrf LATB
+    clrf PORTB
     clrf var1
     clrf var2
     clrf var3
@@ -100,11 +101,11 @@ initialization:
     movwf bar_length
     return
    
- test: ; 25 MS BUSY WAIT
+ test: ; 10 MS BUSY WAIT
     movlw 223
     movwf var2
     outer_loop:
-	movlw 5
+	movlw 156
 	movwf var1
 	inner_loop:
 	    incfsz var1 ; var1 += 1; if (var1 == 0) skip next
@@ -118,11 +119,11 @@ initialization:
     goto count_load_10
     goto count_load_20
     count_load_10:
-	movlw 0x0A
+	movlw 25
 	movwf count
 	return
     count_load_20:
-	movlw 0x14
+	movlw 50
 	movwf count
 	return
 event_loop: ; 
